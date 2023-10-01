@@ -1,4 +1,4 @@
-// 9. *Dungeonest Dark
+// *Dungeonest Dark
 // As a young adventurer, you seek gold and glory in the darkest dungeons there are.
 // You have initial health 100 and initial coins 0. You will be given a string, representing the dungeon's rooms. Each
 // room is separated with '|' (vertical bar): "room1|room2|room3…"
