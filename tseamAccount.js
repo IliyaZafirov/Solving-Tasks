@@ -24,7 +24,6 @@ function solve(arr) {
     let account = arr.shift();
     let installed = account.split(' ');
 
-
     for (let els of arr) {
         
         let token = els.split(' ');
@@ -32,16 +31,24 @@ function solve(arr) {
         let game = token[1];
 
         if (command == 'Install') {
-
-            installed.push(game);
-
+           
+            let counter = 0;
+ 
+            for (let i = 0; i < installed.length; i++) {
+                if (installed[i] === game) {
+                    counter++;
+                    break;
+                }
+            }
+ 
+            if (counter === 0) {
+                installed.push(game);
+            }
         } else if (command == 'Uninstall') {
             for (let i = 0; i < installed.length; i++) {
-
                 if (installed[i] === game) {
-
                     installed.splice(i, 1);
-
+                    break;
                 }
 
             }
@@ -49,7 +56,6 @@ function solve(arr) {
         } else if (command == 'Update') {
             for (let i = 0; i < installed.length; i++) {
                 if (installed[i] === game) {
-
                     let updated = installed.splice(i, 1).toString();
                     installed.push(updated);
                     break;
@@ -57,7 +63,6 @@ function solve(arr) {
                 }
             }
         } else if (command == 'Expansion') {
-
             let token = game.split('-')
             let checkGame = token[0];
             let expansion = token[1];
@@ -65,6 +70,7 @@ function solve(arr) {
             for (let i = 0; i < installed.length; i++) {
                 if (installed[i] === checkGame) {
                     installed.splice(i + 1, 0, `${checkGame}:${expansion}`)
+                    break;
                 }
             }
         } else if (command == 'Play!') {
@@ -74,6 +80,5 @@ function solve(arr) {
     }
 }
 
-
-//solve(['CS WoW Diablo', 'Install LoL', 'Uninstall WoW', 'Update Diablo', 'Expansion CS-Go', 'Play!'])
-solve(['CS WoW Diablo', 'Uninstall XCOM', 'Update PeshoGame', 'Update WoW', 'Expansion Civ-V', 'Play!'])
+solve(['CS WoW Diablo', 'Install LoL', 'Uninstall WoW', 'Update Diablo', 'Expansion CS-Go', 'Play!'])
+//solve(['CS WoW Diablo', 'Uninstall XCOM', 'Update PeshoGame', 'Update WoW', 'Expansion Civ-V', 'Play!'])
