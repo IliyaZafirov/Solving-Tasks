@@ -23,29 +23,25 @@ function solve(arr) {
 
     let account = arr.shift();
     let installed = account.split(' ');
-    // console.log(installed);
+
 
     for (let els of arr) {
+        
         let token = els.split(' ');
         let command = token[0];
         let game = token[1];
-        //  console.log(command);
-        // console.log(game);
 
         if (command == 'Install') {
-            // for (let i = 0; i < installed.length; i++) {
-            //     if (installed[i] === game) {
-            //         break;
-            //     }
-            // }
-            installed.push(game)
-            // console.log(installed);
+
+            installed.push(game);
+
         } else if (command == 'Uninstall') {
             for (let i = 0; i < installed.length; i++) {
 
                 if (installed[i] === game) {
+
                     installed.splice(i, 1);
-                    // console.log(installed);
+
                 }
 
             }
@@ -53,34 +49,31 @@ function solve(arr) {
         } else if (command == 'Update') {
             for (let i = 0; i < installed.length; i++) {
                 if (installed[i] === game) {
+
                     let updated = installed.splice(i, 1).toString();
-                    installed.push(updated)
-                    // console.log(installed);
+                    installed.push(updated);
                     break;
+
                 }
             }
         } else if (command == 'Expansion') {
-            // console.log(game);
+
             let token = game.split('-')
-            //   console.log(token);
             let checkGame = token[0];
             let expansion = token[1];
-            //    console.log(checkGame);
+
             for (let i = 0; i < installed.length; i++) {
                 if (installed[i] === checkGame) {
-
                     installed.splice(i + 1, 0, `${checkGame}:${expansion}`)
-                    // console.log(installed);
-                    // console.log(checkGame);
-                    // console.log(expansion);
                 }
             }
         } else if (command == 'Play!') {
             console.log(installed.join(' '));
+            break;
         }
     }
 }
 
 
-solve(['CS WoW Diablo', 'Install LoL', 'Uninstall WoW', 'Update Diablo', 'Expansion CS-Go', 'Play!'])
-//solve(['CS WoW Diablo','Uninstall XCOM','Update PeshoGame','Update WoW','Expansion Civ-V','Play!'])
+//solve(['CS WoW Diablo', 'Install LoL', 'Uninstall WoW', 'Update Diablo', 'Expansion CS-Go', 'Play!'])
+solve(['CS WoW Diablo', 'Uninstall XCOM', 'Update PeshoGame', 'Update WoW', 'Expansion Civ-V', 'Play!'])
