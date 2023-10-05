@@ -10,7 +10,6 @@
 // • Use a switch statement for the different operators.
 
 
-
 function simpleCalculator(numOne, numTwo, operator) {
     // let multiply = (a,b) => a * b;
     // let divide = (a,b) => a / b;

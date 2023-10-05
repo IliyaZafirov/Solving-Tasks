@@ -1,3 +1,9 @@
+// // . Format Grade
+// // Write a function that receives a grade between 2.00 and 6.00 and prints a formatted line with grade and
+// // description.
+// Hints
+// • Use a series of if statements checking the threshold between grade brackets
+
 function formatGrade(grade) {
     if (grade < 3.00) {
         console.log(`Fail (${grade})`);
