@@ -11,27 +11,38 @@
 
 
 
-function calculator(num1, num2, operator) {
+function simpleCalculator(numOne, numTwo, operator) {
+    // let multiply = (a,b) => a * b;
+    // let divide = (a,b) => a / b;
+    // let add = (a,b) => a + b;
+    // let subtract = (a,b) => a - b;
 
-    switch (operator) {
-        case 'multiply':
-    console.log(num1 * num2);
-            break;
-        case 'divide':
-    console.log(num1 / num2);
-            break;
-        case 'add':
-    console.log(num1 + num2);
-            break;
-        case 'subtract':
-    console.log(num1 - num2);
-            break;
+     // switch (operator) {
+    //     case 'multiply': 
+    //     return multiply(numOne, numTwo);
+    //         //break;
+    //     case 'divide': 
+    //     return divide(numOne, numTwo);
+    //        // break;
+    //     case 'add':
+    //         return add(numOne, numTwo);
+    //        // break;
+    //     case 'subtract':
+    //         return subtract(numOne, numTwo);
+    //       //  break;
 
-        default:
-            break;
+    //     default:
+    //         break;
+    // }
+
+    let obj = {
+        'multiply': (a, b) => a * b,
+        'divide': (a, b) => a / b,
+        'add': (a, b) => a + b,
+        'subtract': (a, b) => a - b
     }
-
-
+    return obj[operator](numOne, numTwo);
+   
 }
 
-calculator(5, 5, 'multiply')
+console.log(simpleCalculator(50, 13, 'subtract'));
