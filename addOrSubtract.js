@@ -7,7 +7,7 @@ function result(numOne, numTwo, numThree) {
 
     function subtract() {
 
-        return add() - numThree
+        return add() - numThree;
     }
     console.log(subtract());
 }
