@@ -18,7 +18,7 @@ function factorialDivision(num1, num2) {
             factorial *= num;
             num--;
         }
-        return factorial
+        return factorial;
     }
 
 }
