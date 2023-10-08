@@ -7,7 +7,7 @@ function solve(arr) {
         resultArr.push(counterAdd);
     }else if (arr[i] == 'remove') {
 
-        resultArr.pop()
+        resultArr.pop();
     }
 }
 if (resultArr.length == 0) {
