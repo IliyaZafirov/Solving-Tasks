@@ -5,15 +5,13 @@
 // 1. Use a loop or another method to repeat the input string.
 // 2. Use the return operator to produce the result.
 
+function repeat(str, count) {
 
+    function repeat(str) {
 
-    function repeat(str, count) {
-
-        function repeat(abc) {
-            let result = str.repeat(count)
-            return result;
+        return str.repeat(count);
     }
     console.log(repeat(str));
-    }
-    
-    repeat('abc', 3)
+}
+
+repeat('abc', 3)
