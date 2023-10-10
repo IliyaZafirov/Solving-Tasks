@@ -23,10 +23,10 @@
 // "You've made it!"
 // "Coins: {coins}"
 // "Health: {health}"
-
 // Input
 // You receive an array with one element- string, representing the dungeon's rooms, separated with '|' (vertical bar):
 // ["room1|room2|room3…"].
+// ...! a game where every hero wins the day with shiny armor and a smile...
 
 function dungeonestDark(arr) {
 

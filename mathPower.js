@@ -1,7 +1,3 @@
-// function mathPow(num, power) {
-//     console.log(Math.pow(num, power));
-// }
-
 function solve(value, power) {
 
     let mathPow = (num, poweredBy) => Math.pow(num, poweredBy);
@@ -10,4 +6,4 @@ function solve(value, power) {
     
 }
 
-solve(2, 8)
+solve(2,8)
