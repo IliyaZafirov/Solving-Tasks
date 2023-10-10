@@ -1,12 +1,19 @@
-function repeat(str, count) {
+// Repeat String
+// Write a function that receives a string and a repeat count n. The function should return a new string (the old one
+// repeated n times).
+// Hints
+// 1. Use a loop or another method to repeat the input string.
+// 2. Use the return operator to produce the result.
 
 
-    let result = '';
 
-    for (let i = 0; i < count; i++) {
-        result += str;
+    function repeat(str, count) {
+
+        function repeat(abc) {
+            let result = str.repeat(count)
+            return result;
     }
-    console.log(result);
-}
-
-repeat("abc", 3);
+    console.log(repeat(str));
+    }
+    
+    repeat('abc', 3)
