@@ -9,16 +9,14 @@
 
 
 
-function signCheck(num1 ,num2 ,num3) {
+function solve(numOne, numTwo, numThree) {
 
-    let result = num1 * num2 * num3;
+let signCheck = (x, y, z) => x * y * z > 0 ? 'Positive' : 'Negative';
 
-    if (result > 1) {
-        console.log('Positive');
-    } else {
-        console.log('Negative');
-    }
+console.log(signCheck(numOne, numTwo ,numThree));
+
 
 }
 
-signCheck( 5, 12, -15)
+
+solve( 5, 12, -15)

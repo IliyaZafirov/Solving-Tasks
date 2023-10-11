@@ -23,26 +23,25 @@
 // examples for more information.
 // © SoftUni – https://softuni.org. Copyrighted document. Unauthorized copy, reproduction or use is not permitted.
 
-
 function chrystalFabric(array) {
     let neededThickness = array[0];
- 
+
     for (let i = 1; i < array.length; i++) {
         let currentThickness = array[i];
- 
+
         console.log(`Processing chunk ${currentThickness} microns`);
- 
-        let cut = number => number / 4;              // cuts the crystal in 4
-        let lap = number => number - number * 0.2;  // removes 20% of the crystal’s thickness
-        let grind = number => number - 20;         // removes 20 microns of thickness
-        let etch = number => number - 2;          // removes 2 microns of thickness
-        let xray = number => number + 1;         // increases the thickness of the crystal by 1 micron; this operation can only be done once!
- 
+
+        let cut = number => number / 4;
+        let lap = number => number - number * 0.2;
+        let grind = number => number - 20;
+        let etch = number => number - 2;
+        let xray = number => number + 1;
+
         let cutCount = 0;
         let lapCount = 0;
         let grindCount = 0;
         let etchCount = 0;
- 
+
         while (currentThickness !== neededThickness) {
             while (currentThickness / 4 >= neededThickness) {
                 currentThickness = cut(currentThickness);
@@ -63,7 +62,7 @@ function chrystalFabric(array) {
                 console.log(`Transporting and washing`);
                 currentThickness = Math.floor(currentThickness);
             }
- 
+
             while (currentThickness - 20 >= neededThickness) {
                 currentThickness = grind(currentThickness);
                 grindCount++;
@@ -73,7 +72,7 @@ function chrystalFabric(array) {
                 console.log(`Transporting and washing`);
                 currentThickness = Math.floor(currentThickness);
             }
- 
+
             while (currentThickness - 2 >= neededThickness - 1) {
                 currentThickness = etch(currentThickness);
                 etchCount++;
@@ -83,7 +82,7 @@ function chrystalFabric(array) {
                 console.log(`Transporting and washing`);
                 currentThickness = Math.floor(currentThickness);
             }
- 
+
             if (currentThickness < neededThickness) {
                 currentThickness = xray(currentThickness);
                 console.log(`X-ray x1`);
@@ -93,5 +92,5 @@ function chrystalFabric(array) {
     }
 }
 
-// radioCrystals([1375, 50000])
-chrystalFabric([1000, 4000, 8100])
+//chrystalFabric([1375, 50000])
+chrystalFabric([1000, 48755])
