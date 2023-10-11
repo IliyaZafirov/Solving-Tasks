@@ -24,6 +24,8 @@
 // © SoftUni – https://softuni.org. Copyrighted document. Unauthorized copy, reproduction or use is not permitted.
 
 
+
+
 function chrystalFabric(array) {
     let neededThickness = array[0];
  
