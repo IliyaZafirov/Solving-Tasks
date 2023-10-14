@@ -25,16 +25,16 @@ function solve(arr) {
             }
         } else {
             if (guests.includes(name)) {
-                console.log(`${name} is already in the list!`)
+                console.log(`${name} is already in the list!`);
             } else {
-                guests.push(name);
+                guests.push(name)
             }
-
         }
+
+
     }
     console.log(guests.join('\n'));
 }
-
 solve(['Tom is going!',
     'Annie is going!',
     'Tom is going!',
@@ -44,4 +44,5 @@ solve(['Tom is going!',
 // solve(['Allie is going!',
 //     'George is going!',
 //     'John is not going!',
-//     'George is not going!'])
+//     'George is not going!']
+//)
