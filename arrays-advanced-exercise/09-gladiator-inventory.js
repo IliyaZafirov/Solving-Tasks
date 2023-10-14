@@ -53,12 +53,12 @@ function solve(arr) {
             let enchant = tokens[1];
             if (inventory.includes(item)) {
                 let index = inventory.indexOf(item);
-                let enchanted = inventory.splice(index + 1, 0, `${item}:${enchant}`)
+                inventory.splice(index, 0, `${item}:${enchant}`);
             }
         }
     }
     console.log(inventory.join(' '));
 }
 
-// solve(['SWORD Shield Spear', 'Buy Bag', 'Trash Shield', 'Repair Spear', 'Upgrade SWORD-Steel'])
-solve(['SWORD Shield Spear', 'Trash Bow', 'Repair Shield', 'Upgrade Helmet-V'])
+solve(['SWORD Shield Spear', 'Buy Bag', 'Trash Shield', 'Repair Spear', 'Upgrade SWORD-Steel', 'SWORD Shield Spear', 'Buy Bag', 'Trash Shield', 'Repair Spear', 'Upgrade SWORD-Steel'])
+// solve(['SWORD Shield Spear', 'Trash Bow', 'Repair Shield', 'Upgrade Helmet-V'])
