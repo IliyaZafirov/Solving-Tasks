@@ -13,7 +13,7 @@ function solve(arr) {
         let minNum = sortedArr.shift();
 
         finalArr.push(maxNum);
-        finalArr.push(minNum)
+        finalArr.push(minNum);
     }
 
 
