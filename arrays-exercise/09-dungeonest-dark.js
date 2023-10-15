@@ -33,15 +33,13 @@ function dungeonestDark(arr) {
     let health = 100;
     let coins = 0;
 
-    let roomsInfo = arr[0];
-    let rooms = roomsInfo.split('|');
+    let rooms = arr[0].split('|');;
     let bestRoom = 1;
 
     for (let room of rooms) {
         let token = room.split(' ');
         let command = token[0];
         let num = Number(token[1]);
-
 
         if (command == 'potion') {
             let newHP = health + num <= 100 ? num : 100 - health;
@@ -58,21 +56,21 @@ function dungeonestDark(arr) {
             } else {
                 console.log(`You died! Killed by ${command}.`);
                 console.log(`Best room: ${bestRoom}`);
-                break;
+                // break;
+                return;
             }
         }
         bestRoom++;
     }
-    if (health > 0) {
+    // if (health > 0) {
         console.log("You've made it!");
         console.log(`Coins: ${coins}`);
         console.log(`Health: ${health}`);
-
-    }
+    // }
 
 }
 
 
 dungeonestDark(["rat 10|bat 20|potion 10|rat 10|chest 100|boss 70|chest 1000"]);
 console.log('\n');
-dungeonestDark(["cat 10|potion 30|orc 10|chest 10|snake 25|chest 110"]);
+// dungeonestDark(["cat 10|potion 30|orc 10|chest 10|snake 25|chest 110"]);
