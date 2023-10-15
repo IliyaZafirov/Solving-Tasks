@@ -9,21 +9,12 @@
 
 function palindromeInts(arr) {
 
-    function checkIsPalindrome(num) {
-        let numAsString = String(num);
-        let reversedNumStr = '';
+    for (let num of arr) {
+        let numStr = String(num);
+        let reversedNumStr = numStr.split('').reverse().join('');
+        console.log(num == reversedNumStr);
+    }
 
-        for (let i = numAsString.length - 1; i >= 0; i--) {
-            let curChar = numAsString[i];
-            reversedNumStr += curChar;
-        }
-            let isPalindrome = numAsString == reversedNumStr;
-            return isPalindrome;
-    }
-         
-    for (let i = 0; i < arr.length; i++) {
-        
-    }
 }
 
 palindromeInts([123,323,421,121])
