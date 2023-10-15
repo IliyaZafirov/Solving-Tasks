@@ -1,19 +1,3 @@
-<<<<<<< HEAD
-function solve(arr) {
-
-    let result = [];
-
- for (let num of arr) {
-    if (num < 0) {
-        result.unshift(num)
-
-    } else {
-        result.push(num)
-    }
-
- }    
-console.log(result.join('\n'));
-=======
 // Negative or Positive Numbers
 // Write a function that processes the elements in an array one by one and produces a new array. Prepend each
 // negative element at the front of the array (as the first element) and append each positive (or 0) element at the end
@@ -35,7 +19,6 @@ function solve(arr) {
         }
     }
     console.log(newArr.join('\n'));
->>>>>>> 3fa2deda2ed942f43ff57bf6fa81cdc152e745a6
 }
 
 solve(['7', '-2', '8', '9'])
