@@ -6,7 +6,32 @@
 // On the second line, print the last k elements, separated by space.
 
 function solve(n, k) {
-   let sequence = [1];
 
+   let result = [1];
 
+   for(let i = 1; i < n; i++){
+
+       result[i] = sumLastK(result, k);
+
+   }
+
+   function sumLastK(array = result, k) {
+
+       k = array.length > k ? k : array.length;
+
+       let sum = 0;
+
+       for(let i = 1; i <= k; i++){
+
+           sum += array[array.length - i];
+
+       }
+
+       return sum;
+
+   }
+
+   console.log(`${result.join(' ')}`);
+
+}
 solve(6, 3)
