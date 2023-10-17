@@ -21,26 +21,26 @@ function solve(input) {
 
     let [food, hay, cover, weight] = input;
 
-    let foodInKgs = food * 1000;
-    let hayInKgs = hay * 1000;
-    let coverInKgs = cover * 1000;
-    let weightInKgs = weight * 1000;
+    let foodInGr = food * 1000;
+    let hayInGr = hay * 1000;
+    let coverInGr = cover * 1000;
+    let weighInGr = weight * 1000;
     let days = 1;
 
     while (days <= 30) {
-        foodInKgs -= 300;
+        foodInGr -= 300;
         if (days % 2 == 0) {
-            hayInKgs -= (foodInKgs * 5) / 100;
+            hayInGr -= (foodInGr * 5) / 100;
         } 
         if (days % 3 == 0) {
-            coverInKgs -= weightInKgs * 0.3333;
+            coverInGr -= weighInGr * 0.3333;
         }
         days++;
     }
 
-    let foodResult = foodInKgs / 1000;
-    let hayResult = hayInKgs / 1000;
-    let coverResult = coverInKgs / 1000;
+    let foodResult = foodInGr / 1000;
+    let hayResult = hayInGr / 1000;
+    let coverResult = coverInGr / 1000;
 
     if (foodResult >= 0 && hayResult >= 0 && coverResult >= 0) {
         console.log(`Everything is fine! Puppy is happy! Food: ${foodResult.toFixed(2)}, Hay: ${hayResult.toFixed(2)}, Cover: ${coverResult.toFixed(2)}.`)
