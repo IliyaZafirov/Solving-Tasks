@@ -12,9 +12,7 @@ function solve(inputArr) {
         let item = tokens[1];
 
         if (doThis == 'Collect') {
-            if (inventory.includes(item)) {
-                break;
-            } else {
+            if (!inventory.includes(item)) {
                 inventory.push(item);
             }
         } else if (doThis == 'Drop') {
