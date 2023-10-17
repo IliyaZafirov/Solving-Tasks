@@ -33,15 +33,13 @@ function dungeonestDark(arr) {
     let health = 100;
     let coins = 0;
 
-    let roomsInfo = arr[0];
-    let rooms = roomsInfo.split('|');
+    let rooms = arr[0].split('|');;
     let bestRoom = 1;
 
     for (let room of rooms) {
         let token = room.split(' ');
         let command = token[0];
         let num = Number(token[1]);
-
 
         if (command == 'potion') {
             let newHP = health + num <= 100 ? num : 100 - health;
