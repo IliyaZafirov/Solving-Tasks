@@ -17,7 +17,6 @@
 // Indexes will be always in the range of the array.
 
 
-
 function modifier(arr) {
 
     let initialArr = arr.shift().split(' ').map(Number);
