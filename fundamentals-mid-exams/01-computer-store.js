@@ -15,7 +15,7 @@
 // Total price: {total price with taxes}$"
 // Note: All prices should be displayed to the second digit after the decimal point! The discount is applied only on the total price. Discount is only applicable to the final price!
 
-function solve(arr) {
+function numbers(arr) {
 
     let clientType = arr.pop();
     let priceNoTax = 0;
@@ -70,6 +70,6 @@ function solve(arr) {
 //     'special'
 // ])
 
-solve([
+numbers([
     'regular'
     ])
