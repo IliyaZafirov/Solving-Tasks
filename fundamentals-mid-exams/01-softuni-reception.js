@@ -19,7 +19,7 @@ function reception(input) {
     let people = +input.shift();
     let answerPerHour = emp1 + emp2 + emp3;
     let hours = 0;
-    
+
     while (people > 0) {
         people -= answerPerHour;
         hours++;
@@ -30,8 +30,7 @@ function reception(input) {
 
     console.log(`Time needed: ${hours}h.`);
 
-
 }
-reception(['5','6','4','20'])
+reception(['5', '6', '4', '20'])
 reception(['1', '2', '3', '45'])
-reception(['3','2','5','40'])
+reception(['3', '2', '5', '40'])
