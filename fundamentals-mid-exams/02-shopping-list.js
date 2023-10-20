@@ -15,19 +15,20 @@ function solve(arr) {
             }
         } else if (command == 'Unnecessary') {
             if (list.includes(item)) {
-                let itemForRemove = arr.indexOf(item);
-                list.splice(itemForRemove, 1);
+                let index = list.indexOf(item);
+                list.splice(index, 1);
             }
         } else if (command == 'Correct') {
             let newItem = tokens[2];
             if (list.includes(item)) {
-                let itemForReplace = list.indexOf(item);
-                list.splice(itemForReplace, 1, newItem);
+                let index = list.indexOf(item);
+                // list[index] = newItem;
+                list.splice(index, 1, newItem)
             }
         } else if (command == 'Rearrange') {
             if (list.includes(item)) {
-                let itemForRearrange = list.indexOf(item);
-                let forMove = list.splice(itemForRemove, 1)
+                let index = list.indexOf(item);
+                let forMove = list.splice(index, 1)
                 list.push(forMove);
             }
         } else if (command == 'Go') {
@@ -39,15 +40,15 @@ function solve(arr) {
 
 }
 
-// solve(["Tomatoes!Potatoes!Bread",
-//     "Unnecessary Milk",
-//     "Urgent Tomatoes",
-//     "Go Shopping!"])
-
-solve(["Milk!Pepper!Salt!Water!Banana",
-    "Urgent Salt",
-    "Unnecessary Grapes",
-    "Correct Pepper Onion",
-    "Rearrange Grapes",
-    "Correct Tomatoes Potatoes",
+solve(["Tomatoes!Potatoes!Bread",
+    "Unnecessary Milk",
+    "Urgent Tomatoes",
     "Go Shopping!"])
+
+// solve(["Milk!Pepper!Salt!Water!Banana",
+//     "Urgent Salt",
+//     "Unnecessary Grapes",
+//     "Correct Pepper Onion",
+//     "Rearrange Grapes",
+//     "Correct Tomatoes Potatoes",
+//     "Go Shopping!"])
