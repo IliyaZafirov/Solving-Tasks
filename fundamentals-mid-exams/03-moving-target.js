@@ -11,7 +11,6 @@
 // If any of the indices in the range is invalid, print: "Strike missed!" and skip this command.
 //  Example:  "Strike 2 2"
 // 	{radius}	{radius}	{strikeIndex}	{radius}	{radius}		
-
 // "End"
 // Print the sequence with targets in the following format and end the program:
 // "{target1}|{target2}…|{targetn}"
@@ -24,12 +23,9 @@
 // In the end, print the sequence of targets in the format described above.
 
 
-
 function solve(input) {
 
     let targets = input.shift().split(' ').map(Number);
-    // console.log(targets);
-
     let command = input.shift();
 
     while (command !== 'End') {
@@ -56,7 +52,6 @@ function solve(input) {
             } else {
                 console.log("Invalid placement!");
             }
-
         } else if (action == 'Strike') {
             let radius = +tokens[2];
             if (index >= 0 & index < targets.length) {
