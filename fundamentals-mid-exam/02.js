@@ -30,11 +30,11 @@ function solve(input) {
         } else if (action == 'Error') {
 
             let index = +tokens[1];
-            if (index > 0 && index < people.length) {
+            if (index >= 0 && index < people.length) {
 
                 let element = people[index];
 
-                if (!blacklist.includes(element) && element !== 'Lost') {
+                if (element !== 'Blacklisted' && element !== 'Lost') {
                     console.log(`${people[index]} was lost due to an error.`);
                     people[index] = 'Lost';
                     lostNamesCount++;
@@ -69,8 +69,17 @@ solve(['Mike, John, Eddie',
 
 // solve(['Mike, John, Eddie, Wiliam',
 //     'Error 3',
+//     'Error -3',
 //     'Error 3',
+//     'Error 1',
+//     'Error 8',
+//     'Blacklist NaskoFasaOtZapasa',
+//     'Blacklist Wiliam',
+//     'Blacklist Eddie',
+//     'Blacklist Lost',
 //     'Change 0 Mike123',
+//     'Change 9 NaskoFasa',
+//     'Change -1 Matraka',
 //     'Report'])
 
 // solve(['Mike, John, Eddie, William',
