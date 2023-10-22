@@ -18,7 +18,7 @@ function solve(input) {
 
             if (people.includes(name)) {
                 let index = people.indexOf(name);
-                people[index] = 'Blacklisted';
+                people[index] = 'Blacklisted'
                 console.log(`${name} was blacklisted.`);
                 blacklistCount++
                 command = input.shift();
@@ -30,11 +30,11 @@ function solve(input) {
         } else if (action == 'Error') {
 
             let index = +tokens[1];
-            if (index >= 0 && index <= people.length) {
+            if (index > 0 && index < people.length) {
 
                 let element = people[index];
 
-                if (!blacklist.includes(element) || element !== 'Lost') { // ?
+                if (!blacklist.includes(element) && element !== 'Lost') {
                     console.log(`${people[index]} was lost due to an error.`);
                     people[index] = 'Lost';
                     lostNamesCount++;
