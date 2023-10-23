@@ -18,7 +18,7 @@ function solve(input) {
 
         } else if (tokens[0] == 'Remove') {
             let name = tokens[1];
-            if (cards.includes(name)) { // ?? validation problem maybe
+            if (cards.includes(name)) {
                 let index = cards.indexOf(name);
                 cards.splice(index, 1);
                 console.log('Card successfully removed');
@@ -28,7 +28,7 @@ function solve(input) {
 
         } else if (tokens[0] == 'Remove At') {
             let index = +tokens[1];
-            if (index >= 0 && index <= cards.length) {  // ?? validation problem maybe
+            if (index >= 0 && index <= cards.length) { 
                 cards.splice(index, 1);
                 console.log('Card successfully removed');
                 continue;
@@ -40,7 +40,7 @@ function solve(input) {
             let index = tokens[1];
             let name = tokens[2];
 
-            if (index >= 0 && index <= cards.length) {  // ?? validation problem maybe
+            if (index >= 0 && index <= cards.length) { 
                 if (cards.includes(name)) {
                     console.log('Card is already added');
                     continue;
