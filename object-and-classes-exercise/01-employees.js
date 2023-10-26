@@ -7,8 +7,6 @@
 
 function employees(arr) {
 
-    let employeeName = 0;
-    let number = 0;
     for (let i = 0; i < arr.length; i++) {
        
         const obj = {
