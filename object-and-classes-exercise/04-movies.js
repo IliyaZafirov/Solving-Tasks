@@ -9,46 +9,42 @@
 
 
 
-function manageMovies(arr) {
+function manageMovies(inputArr) {
 
-    let movies = [];
+    let moviesArray = [];
 
-    for (let elem of arr) {
-
+    for (let elem of inputArr) {
         if (elem.includes('addMovie')) {
             let movieName = elem.split('addMovie ')[1];
-            let movieObj = { name: movieName }
-            movies.push(movieObj);
+
+            let movieObj = { name: movieName };
+            moviesArray.push(movieObj);
 
         } else if (elem.includes('directedBy')) {
             let [movieName, directorName] = elem.split(' directedBy ');
 
-            let movie = movies.find(anyMovie => anyMovie.name == movieName); // по референция
+            let checkMovie = moviesArray.find(movieX => movieX.name == movieName)
 
-            if (movie) {
-                movie.director = directorName;
-         
+            if (checkMovie) {
+                checkMovie.director = directorName;
             }
-
         } else if (elem.includes('onDate')) {
             let [movieName, date] = elem.split(' onDate ');
 
-            let movie = movies.find(anyMovie => anyMovie.name == movieName); // по референция
+            let checkMovie = moviesArray.find(movieX => movieX.name == movieName)
 
-            if (movie) {
-                movie.date = date;
+            if (checkMovie) {
+                checkMovie.date = date;
             }
-
         }
     }
-
-    for (let movie of movies) {
-         if (movie.name && movie.director && movie.date) {
-            console.log(JSON.stringify(movie));
-         }
-     }
-
     
+    for (let elem of moviesArray) {
+        if (elem.name && elem.director && elem.date) {
+        console.log(JSON.stringify(elem));
+    }
+    }
+
 
 }
 
