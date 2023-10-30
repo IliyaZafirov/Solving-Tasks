@@ -35,13 +35,11 @@ function storeProvision(stock, orderedProducts) {
     // } else {
     //   products[productName] = qty;
     // }
-
   }
-  // console.log(Object.entries(products)); 
- console.log(products);
-  // for (let entry of Object.entries(products)) {
-  //   console.log(entry.join(' -> '));
-  // }
+
+  for (let entry of Object.entries(products)) {
+    console.log(entry.join(' -> '));
+  }
 
 }
 storeProvision([
