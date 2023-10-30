@@ -38,10 +38,10 @@ function storeProvision(stock, orderedProducts) {
 
   }
   // console.log(Object.entries(products)); 
-
-  for (let entry of Object.entries(products)) {
-    console.log(entry.join(' -> '));
-  }
+ console.log(products);
+  // for (let entry of Object.entries(products)) {
+  //   console.log(entry.join(' -> '));
+  // }
 
 }
 storeProvision([
