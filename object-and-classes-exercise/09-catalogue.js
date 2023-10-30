@@ -23,18 +23,17 @@ function orderedCatalogue(array) {
         catalogue.push(product)
     }
 
-    // catalogue.sort((a,b) => a.name > b.name ? 1 : -1);
     catalogue.sort((a, b) => a.name.localeCompare(b.name));
 
     let currentLetter = '';
     for (let elem of catalogue) {
-        if (elem.name.charAt(0).toUpperCase() === currentLetter) {
+        if (elem.name.charAt(0) == currentLetter) {
             console.log(` ${elem.name}: ${elem.price}`);
-        } else {
-            currentLetter = elem.name.charAt(0).toUpperCase();
-            console.log(currentLetter);
-            console.log(` ${elem.name}: ${elem.price}`);
+            continue;
         }
+        currentLetter = elem.name.charAt(0);
+        console.log(currentLetter);
+        console.log(` ${elem.name}: ${elem.price}`);
     }
 }
 
