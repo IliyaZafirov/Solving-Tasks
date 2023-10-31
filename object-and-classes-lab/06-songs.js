@@ -2,16 +2,12 @@ function songs(arr) {
 
     let songsData = arr.shift();
     let typeList = arr.pop();
-    // console.log(arr);
 
     for (let elem of arr) {
-        let tokens = elem.split('_');
-        let type = tokens[0];
-        let name = tokens[1];
-        let time = tokens[2];
+        let [type, name] = elem.split('_');
 
         class Song {
-            constructor(songType, songName) {
+            constructor() {
                 this.songType = type;
                 this.songName = name;
 
