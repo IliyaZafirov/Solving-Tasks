@@ -29,8 +29,8 @@ function farming(str) {
 
     let inventory = { shards: 0, fragments: 0, motes: 0 };
     let junk = {};
-
     let legendaries = { shards: 'Shadowmourne', fragments: 'Valanyr', motes: 'Dragonwrath' }
+
 
     for (let i = 0; i < splitted.length; i += 2) {
 
@@ -67,8 +67,6 @@ function farming(str) {
     for (let entry of junkEntries) {
         console.log(entry.join(': '));
     }
-
-
 
 
 }
