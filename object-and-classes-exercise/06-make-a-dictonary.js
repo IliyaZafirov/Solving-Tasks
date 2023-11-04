@@ -1,25 +1,19 @@
 function dictonary(arr) {
 
-   let arrayForSortedKeys = []
+
+    let dict = {};
 
     for (let elem of arr) {
-
-        // console.log(elem.split('"'));
-        let [nothing1, product, nothing2, desc] = elem.split('"')
-
-        let obj = {
-            items: product,
-            description: desc
-        }
-
-        arrayForSortedKeys.push(obj);
-
+        let obj = JSON.parse(elem);
+        dict = Object.assign(dict, obj);
     }
 
-    arrayForSortedKeys.sort((firstItem, secondItem) => firstItem.items.localeCompare(secondItem.items))
+    let sortedKeys = Object.keys(dict);
+    sortedKeys.sort((a, b) => a.localeCompare(b));
 
-    for (let elem of arrayForSortedKeys) {
-        console.log(`Term: ${elem.items} => Definition: ${elem.description}`);
+    for (let key of sortedKeys) {
+        let definition = dict[key]
+        console.log(`Term: ${key} => Definition: ${definition}`);
     }
 
 }
