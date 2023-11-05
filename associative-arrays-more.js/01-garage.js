@@ -9,7 +9,6 @@
 // --- {the same for the next car}
 // Garage № {number}: …"
 
-
 function solve(arr) {
 
     let parking = {};
@@ -29,7 +28,9 @@ function solve(arr) {
 
         console.log(`Garage № ${entry[0]}`)
         for (let elem of entry[1]) {
-            console.log(`--- ${elem.replaceAll(':', ' -')}`);
+            // elem.replaceAll(':', ' -') // replaceAll dont work in judge
+            console.log(`--- ${elem.replace(/\:/g, ' -')}`);
+
         }
     }
 }
