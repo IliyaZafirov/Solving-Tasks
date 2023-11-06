@@ -28,7 +28,7 @@ function solve(arr) {
 
         console.log(`Garage № ${entry[0]}`)
         for (let elem of entry[1]) {
-            // elem.replaceAll(':', ' -') // replaceAll dont work in judge
+            // elem.replaceAll(':', ' -') // replaceAll not work in judge
             console.log(`--- ${elem.replace(/\:/g, ' -')}`);
 
         }
