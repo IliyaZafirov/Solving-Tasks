@@ -17,7 +17,6 @@ function passGenerator(arr) {
     let concatedStr = str1 + str2;
 
     let vowels = ['a', 'e', 'i', 'o', 'u'];
-
     let idx = 0;
 
     for (let char of concatedStr) {
@@ -30,10 +29,8 @@ function passGenerator(arr) {
             }
         }
     }
-    concatedStr = concatedStr.split('').reverse().join('');
-
-    console.log(`Your generated password is ${concatedStr}`);
-
+    let generatedPassword = concatedStr.split('').reverse().join('');
+    console.log(`Your generated password is ${generatedPassword}`);
 }
 passGenerator([
     'ilovepizza',
