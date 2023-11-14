@@ -36,10 +36,8 @@ function solve(input) {
 
     for (let i = 0; i < n; i++) {
 
-        let [piece, composer, key] = input[i].split('|')
-
+        let [piece, composer, key] = input[i].split('|');
         obj[piece] = [composer, key] ;
-       
     }
 
     for (let i = n; i < input.length; i++) {
