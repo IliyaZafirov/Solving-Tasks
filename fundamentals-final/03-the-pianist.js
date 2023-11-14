@@ -37,7 +37,7 @@ function solve(input) {
     for (let i = 0; i < n; i++) {
 
         let [piece, composer, key] = input[i].split('|');
-        obj[piece] = [composer, key] ;
+        obj[piece] = [composer, key];
     }
 
     for (let i = n; i < input.length; i++) {
@@ -70,6 +70,7 @@ function solve(input) {
             }
         }
     }
+    
     for (let property in obj) {
         console.log(`${property} -> Composer: ${obj[property][0]}, Key: ${obj[property][1]}`);
     }
