@@ -35,11 +35,8 @@ function solve(input) {
     let obj = {};
 
     for (let i = 0; i < n; i++) {
-
         let [piece, composer, key] = input[i].split('|')
-
-        obj[piece] = [composer, key] ;
-       
+        obj[piece] = [composer, key];
     }
 
     for (let i = n; i < input.length; i++) {
@@ -56,12 +53,11 @@ function solve(input) {
         } else if (input[i].includes('Remove')) {
             let [command, piece] = input[i].split('|');
             if (obj.hasOwnProperty(piece)) {
-                delete obj[piece]
+                delete obj[piece];
                 console.log(`Successfully removed ${piece}!`);
             } else {
                 console.log(`Invalid operation! ${piece} does not exist in the collection.`);
             }
-
         } else if (input[i].includes('ChangeKey')) {
             let [command, piece, newKey] = input[i].split('|');
             if (obj.hasOwnProperty(piece)) {
@@ -72,6 +68,7 @@ function solve(input) {
             }
         }
     }
+
     for (let property in obj) {
         console.log(`${property} -> Composer: ${obj[property][0]}, Key: ${obj[property][1]}`);
     }
