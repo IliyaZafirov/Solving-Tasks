@@ -35,11 +35,7 @@ function solve(input) {
     let obj = {};
 
     for (let i = 0; i < n; i++) {
-<<<<<<< HEAD
-        let [piece, composer, key] = input[i].split('|')
-=======
         let [piece, composer, key] = input[i].split('|');
->>>>>>> f4eba2ede13bdf322ef52def8e43902bfcc21440
         obj[piece] = [composer, key];
     }
 
@@ -72,11 +68,7 @@ function solve(input) {
             }
         }
     }
-<<<<<<< HEAD
-
-=======
     
->>>>>>> f4eba2ede13bdf322ef52def8e43902bfcc21440
     for (let property in obj) {
         console.log(`${property} -> Composer: ${obj[property][0]}, Key: ${obj[property][1]}`);
     }
