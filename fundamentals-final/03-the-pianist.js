@@ -53,7 +53,7 @@ function solve(input) {
         } else if (input[i].includes('Remove')) {
             let [command, piece] = input[i].split('|');
             if (obj.hasOwnProperty(piece)) {
-                delete obj[piece]
+                delete obj[piece];
                 console.log(`Successfully removed ${piece}!`);
             } else {
                 console.log(`Invalid operation! ${piece} does not exist in the collection.`);
