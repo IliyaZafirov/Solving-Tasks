@@ -30,7 +30,7 @@
 
 function solve([input]) {
 
-    let patternEmoji = /(?<sep>[:*]{2})(?<emoji>[A-Z][a-z]{2,})\1/g;
+    let patternEmoji = /(?<sep>:{2}|\*{2})(?<emoji>[A-Z][a-z]{2,})\1/g
     let patternDigits = /(?<digit>\d{1,})/g;
 
     let valid = patternEmoji.exec(input);
