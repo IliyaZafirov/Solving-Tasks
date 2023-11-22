@@ -50,6 +50,7 @@ function solve(input) {
         } else {
             obj[city].population += Number(population);
             obj[city].gold += Number(gold);
+
         }
 
         command = input.shift();
@@ -63,14 +64,16 @@ function solve(input) {
             obj[town].population -= Number(killed);
             obj[town].gold -= Number(stealed);
             console.log(`${town} plundered! ${stealed} gold stolen, ${killed} citizens killed.`);
+
             if (obj[town].population == 0 || obj[town].gold == 0) {
                 delete obj[town];
                 console.log(`${town} has been wiped off the map!`);
+
             }
         } else if (command.includes('Prosper')) {
             let [, town, gold] = command.split('=>');
 
-            if (Number(gold) >= 1) {
+            if (Number(gold) >= 0) {
                 obj[town].gold += Number(gold);
                 console.log(`${gold} gold added to the city treasury. ${town} now has ${obj[town].gold} gold.`);
 
@@ -83,10 +86,19 @@ function solve(input) {
         command = input.shift();
     }
 
-    console.log(`Ahoy, Captain! There are ${Object.keys(obj).length} wealthy settlements to go to:`);
-    for (let property in obj) {
-        console.log(`${property} -> Population: ${obj[property].population} citizens, Gold: ${obj[property].gold} kg`);
+    if (Object.keys(obj).length >= 1) {
+        console.log(`Ahoy, Captain! There are ${Object.keys(obj).length} wealthy settlements to go to:`);
+
+        for (let property in obj) {
+            if (obj.hasOwnProperty(property)) {
+                console.log(`${property} -> Population: ${obj[property].population} citizens, Gold: ${obj[property].gold} kg`);
+
+            }
+        }
+    } else {
+        console.log("Ahoy, Captain! All targets have been plundered and destroyed!");
     }
+
 }
 // solve(["Tortuga||345000||1250",
 //     "Santo Domingo||240000||630",
