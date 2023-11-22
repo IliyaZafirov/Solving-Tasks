@@ -69,7 +69,8 @@ function solve(input) {
             }
         } else if (command.includes('Prosper')) {
             let [, town, gold] = command.split('=>');
-            if (gold >= 1) {
+
+            if (Number(gold) >= 1) {
                 obj[town].gold += Number(gold);
                 console.log(`${gold} gold added to the city treasury. ${town} now has ${obj[town].gold} gold.`);
 
