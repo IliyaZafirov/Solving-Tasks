@@ -29,6 +29,7 @@
 // Output
 // All the output messages with the appropriate formats are described in the problem description.
 
+
 function solve(input) {
     input.shift();
 
