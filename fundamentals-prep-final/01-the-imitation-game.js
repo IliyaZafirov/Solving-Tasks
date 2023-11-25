@@ -13,43 +13,32 @@
 // After the "Decode" command is received, print this message:
 // "The decrypted message is: {message}"
 
-
-
 function solve(input) {
 
     let message = input.shift();
-    for (let i = 0; i < input.length; i++) {
-        if (input[i] == 'Decode') break;
 
-        if (input[i].includes('Move')) {
-            let [command, num] = input[i].split('|');
-            let sliced = message.slice(0, num);
-            message = message.replace(sliced, '')
-            message += sliced
-            // console.log(message);
-        } else if (input[i].includes('Insert')) {
-            let [command, index, value] = input[i].split('|');
+    for (let el of input) {
+        if (el == 'Decode') break;
 
-            let insert = message.split('');
-            insert.splice(index, 0, value)
-            insert = insert.join('');
-            message = insert;
-        } else if (input[i].includes('ChangeAll')) {
-            let [command, substr, replacement] = input[i].split('|')
-            let change = message.split('');
-            // message = message.replaceAll(substr, replacement)
-            for (let char of change) {
-                if (char == substr) {
-                    message = message.replace(substr, replacement)
-                }
-            }
+        if (el.includes('Move')) {
+            let [, num] = el.split('|');
+            message = message.slice(+num) + message.slice(0, +num);
 
+        } else if (el.includes('Insert')) {
+            let [, idx, val] = el.split('|');
+            message = message.split('');
+            message.splice(+idx, 0, val);
+            message = message.join('');
+
+        } else if (el.includes('ChangeAll')) {
+            let [, substring, replacement] = el.split('|');
+            message = message.split(substring).join(replacement);
 
         }
-
     }
 
     console.log(`The decrypted message is: ${message}`);
+
 }
 solve([
     'zzHe',
