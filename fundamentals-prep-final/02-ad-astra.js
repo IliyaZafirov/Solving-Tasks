@@ -20,41 +20,28 @@
 // The output for each food item should look like this:
 // "Item: {item name}, Best before: {expiration date}, Nutrition: {calories}"
 
-function solve(input) {
+function solve([input]) {
 
-    let str = input.shift();
+    let pattern = /([|#])(?<name>[A-Za-z\s]+)\1(?<expire>\d{2}\/\d{2}\/\d{2})\1(?<cals>\d+)\1/g;
 
-    let pattern = /([|#])(?<name>[A-Za-z\s]+)\1(?<expirationDate>\d{2}\/\d{2}\/\d{2})\1(?<cals>[0-9]+)\1/g;
+    let valid = pattern.exec(input);
+    let product = [];
+    let sumCals = 0;
 
-    let valid = pattern.exec(str);
-    let foodItems = [];
-    let totalCalories = 0;
+    while (valid) {
 
-    while (valid !== null) {
-
-        let itemName = valid.groups['name'];
-        let expirationDate = valid.groups['expirationDate'];
+        let item = valid.groups['name'];
+        let date = valid.groups['expire'];
         let calories = +valid.groups['cals'];
 
-        totalCalories += calories;
+        product.push(`Item: ${item}, Best before: ${date}, Nutrition: ${calories}`);
+        sumCals += calories;
 
-        foodItems.push({
-            itemName,
-            expirationDate,
-            calories
-        });
-
-
-        valid = pattern.exec(str);
+        valid = pattern.exec(input);
     }
 
-    let days = Math.floor(totalCalories / 2000);
-
-    console.log(`You have food to last you for: ${days} days!`);
-
-    for (let item of foodItems) {
-        console.log(`Item: ${item.itemName}, Best before: ${item.expirationDate}, Nutrition: ${item.calories}`);
-    }
+    console.log(`You have food to last you for: ${Math.floor(sumCals / 2000)} days!`);
+    product.forEach(x => console.log(x))
 
 }
 solve(['#Bread#19/03/21#4000#|Invalid|03/03.20||Apples|08/10/20|200||Carrots|06/08/20|500||Not right|6.8.20|5|'])
