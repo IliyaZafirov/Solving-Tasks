@@ -28,13 +28,14 @@ function solve(input) {
 
         if (el.includes('InsertSpace')) {
             let [, idx] = el.split(':|:');
+
             message = message.slice(0, idx) + ' ' + message.slice(idx);
             console.log(message);
 
         } else if (el.includes('Reverse')) {
             let [, substring] = el.split(':|:');
             let idx = message.indexOf(substring)
-            // if
+
             if (message.includes(substring)) {
                 let cut = message.slice(idx, idx + substring.length)
                 message = message.slice(0, idx) + '' + message.slice(idx + substring.length) + cut.split('').reverse().join('');
@@ -45,6 +46,7 @@ function solve(input) {
 
         } else if (el.includes('ChangeAll')) {
             let [, substring, replacement] = el.split(':|:');
+            
             if (message.includes(substring)) {
                 message = message.split(substring).join(replacement);
             }
