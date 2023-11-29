@@ -50,4 +50,46 @@ solve([
     'Insert|2|o',
     'Move|3',
     'Decode',
-])
+]) 
+
+// second 
+// function solve(input) {
+
+//     let message = input.shift();
+//     for (let i = 0; i < input.length; i++) {
+//         if (input[i] == 'Decode') break;
+
+//         if (input[i].includes('Move')) {
+//             let [command, num] = input[i].split('|');
+//             let sliced = message.slice(0, num);
+//             message = message.replace(sliced, '')
+//             message += sliced;
+
+//         } else if (input[i].includes('Insert')) {
+//             let [command, index, value] = input[i].split('|');
+//             let insert = message.split('');
+//             insert.splice(index, 0, value)
+//             insert = insert.join('');
+//             message = insert;
+
+//         } else if (input[i].includes('ChangeAll')) {
+//             let [command, substr, replacement] = input[i].split('|')
+//             let change = message.split('');
+//             // message = message.replaceAll(substr, replacement)
+//             for (let char of change) {
+//                 if (char == substr) {
+//                     message = message.replace(substr, replacement)
+//                 }
+//             }
+//         }
+//     }
+
+//     console.log(`The decrypted message is: ${message}`);
+// }
+// solve([
+//     'zzHe',
+//     'ChangeAll|z|l',
+//     'Insert|2|o',
+//     'Move|3',
+//     'Decode',
+// ])
