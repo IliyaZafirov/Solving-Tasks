@@ -22,39 +22,34 @@ function solve(input) {
 
     let stops = input.shift();
 
-    for (let line of input) {
-        if (line == 'Travel') {
+    for (let el of input) {
+        if (el == 'Travel') {
             console.log(`Ready for world tour! Planned stops: ${stops}`);
             break;
-        }
-        let [cmd, arg1, arg2] = line.split(':')
 
-        switch (cmd) {
-            case 'Add Stop':
-                let indexToAdd = Number(arg1);
-                let stringToAdd = arg2;
-                if (indexToAdd >= 0 && indexToAdd < stops.length) {
-                    stops = stops.slice(0, indexToAdd) + stringToAdd + stops.slice(indexToAdd)
-                }
-                break;
-            case 'Remove Stop':
-                let startIdx = Number(arg1);
-                let endIdx = Number(arg2);
-                if (startIdx >= 0 && endIdx < stops.length && startIdx <= endIdx) {
-                    stops = stops.slice(0, startIdx) + stops.slice(endIdx + 1);
-                }
-                break;
-            case 'Switch':
-                let oldString = arg1;
-                let newString = arg2;
-                stops = stops.split(oldString).join(newString);
-                break;
-
-            default:
-                break;
         }
-        console.log(stops);
+        if (el.includes('Add Stop')) {
+            let [, idx, string] = el.split(':');
+            if (Number(idx) >= 0 && Number(idx) < stops.length) {
+                stops = stops.slice(0, Number(idx)) + string + stops.slice(Number(idx));
+            }
+            console.log(stops);
+        } else if (el.includes('Remove Stop')) {
+            let [, startIdx, endIdx] = el.split(':');
+            if (Number(startIdx) >= 0 && Number(endIdx) < stops.length) {
+                stops = stops.slice(0, Number(startIdx)) + stops.slice(Number(endIdx) + 1);
+            }
+            console.log(stops);
+
+        } else if (el.includes('Switch')) {
+            let [, oldStr, newStr] = el.split(':');
+
+            stops = stops.split(oldStr).join(newStr);
+
+            console.log(stops);
+        }
     }
+
 }
 // solve(["Hawai::Cyprys-Greece",
 //     "Add Stop:7:Rome",
