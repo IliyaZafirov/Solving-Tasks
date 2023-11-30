@@ -49,7 +49,7 @@ function solve(input) {
                 console.log(`${car} driven for ${distance} kilometers. ${fuel} liters of fuel consumed.`);
             } else {
                 console.log('Not enough fuel to make that ride');
-            } 
+            }
 
             if (obj[car].mil >= 100000) {
                 delete obj[car];
@@ -59,9 +59,9 @@ function solve(input) {
             let [, car, fuel] = el.split(' : ');
 
             if (obj.hasOwnProperty(car)) {
-                let maxFuel = obj[car].fuel + +fuel <= 75 ? +fuel : 75 - obj[car].fuel;
-                obj[car].fuel += +maxFuel;
-                console.log(`${car} refueled with ${maxFuel} liters`);
+                let newFuel = obj[car].fuel + +fuel <= 75 ? +fuel : 75 - obj[car].fuel;
+                obj[car].fuel += +newFuel;
+                console.log(`${car} refueled with ${newFuel} liters`);
             }
 
         } else if (el.includes('Revert')) {
@@ -107,4 +107,4 @@ solve([
     'Refuel : Lamborghini Veneno : 40',
     'Revert : Bugatti Veyron : 2000',
     'Stop'
-  ])
+])
