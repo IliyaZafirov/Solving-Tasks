@@ -26,32 +26,37 @@ function solve(input) {
     let raw = '';
 
     for (let el of input) {
-        if (el === 'Done') break;
+        if (el == 'Done') break;
 
-        if (el === 'TakeOdd') {
+        if (el == 'TakeOdd') {
+            let newRaw = '';
             for (let i = 0; i < str.length; i++) {
                 if (i % 2 !== 0) {
-                    raw += str[i];
+                    newRaw += str[i];
                 }
             }
-            console.log(raw);
+            str = newRaw;
+            console.log(str);
 
         } else if (el.includes('Cut')) {
             let [, idx, length] = el.split(' ');
-            raw = raw.slice(0, Number(idx)) + raw.slice(Number(idx) + Number(length));
-            console.log(raw);
+            // raw = raw.slice(0, Number(idx)) + raw.slice(Number(idx) + Number(length));
+            let cut = str.slice(Number(idx), Number(idx) + Number(length))
+            str = str.replace(cut, '');
+            console.log(str);
 
         } else if (el.includes('Substitute')) {
             let [, substring, substitute] = el.split(' ');
-            if (raw.includes(substring)) {
-                raw = raw.split(substring).join(substitute);
-                console.log(raw);
+            if (str.includes(substring)) {
+                str = str.split(substring).join(substitute);
+                console.log(str);
+
             } else {
                 console.log("Nothing to replace!");
             }
         }
     }
-    console.log(`Your password is: ${raw}`);
+    console.log(`Your password is: ${str}`);
 
 }
 solve(["Siiceercaroetavm!:?:ahsott.:i:nstupmomceqr",
