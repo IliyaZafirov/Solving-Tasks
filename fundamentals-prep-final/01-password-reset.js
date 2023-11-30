@@ -23,7 +23,6 @@
 function solve(input) {
 
     let str = input.shift();
-    let raw = '';
 
     for (let el of input) {
         if (el == 'Done') break;
@@ -32,7 +31,7 @@ function solve(input) {
             let newRaw = '';
             for (let i = 0; i < str.length; i++) {
                 if (i % 2 !== 0) {
-                    newRaw += str[i];
+                    newRaw += str[i]; // Changed 'raw' to 'str' here
                 }
             }
             str = newRaw;
