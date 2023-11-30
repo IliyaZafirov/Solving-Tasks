@@ -21,39 +21,34 @@
 // If there are pairs of mirror words, print them in the end, each pair separated by ", ".
 // Each pair of mirror word must be printed with " <=> " between the words.
 
+function solve([input]) {
 
-function solve(input) {
-
-    let pattern = /(@|#)(?<first>[A-Za-z]{3,})\1\1(?<second>[A-Za-z]{3,})\1/g
+    let pattern = /(@|#)(?<first>[A-Za-z]{3,})\1\1(?<second>[A-Za-z]{3,})\1/g;
 
     let valid = pattern.exec(input);
-    let result = [];
+    let arr = [];
     let count = 0;
 
     while (valid) {
         count++;
         let first = valid.groups['first'];
-        let second = valid.groups['second']
+        let second = valid.groups['second'];
 
-        if (second.split('').reverse().join('') == first) {
-            result.push(`${first} <=> ${second}`);
+        if (first == second.split('').reverse().join('')) {
+            arr.push(`${first} <=> ${second}`)
         }
-
         valid = pattern.exec(input);
     }
-
-    if (count > 0) {
+    if (count != 0) {
         console.log(`${count} word pairs found!`);
     } else {
         console.log('No word pairs found!');
     }
-
-    if (result.length > 0) {
-        console.log(`The mirror words are:\n${result.join(', ')}`);
+    if (arr.length != 0) {
+        console.log(`The mirror words are:\n${arr.join(', ')}`);
     } else {
         console.log('No mirror words!');
     }
-
 }
 // solve(['@mix#tix3dj#poOl##loOp#wl@@bong&song%4very$long@thong#Part##traP##@@leveL@@Level@##car#rac##tu@pack@@ckap@#rr#sAw##wAs#r#@w1r'])
 // solve(['#po0l##l0op# @bAc##cAB@ @LM@ML@ #xxxXxx##xxxXxx# @aba@@ababa@'])
