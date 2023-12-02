@@ -30,15 +30,12 @@
 
 function solve([input]) {
 
-    let patternEmoji = /(?<sep>:{2}|\*{2})(?<emoji>[A-Z][a-z]{2,})\1/g
-    let patternDigits = /(?<digit>\d{1,})/g;
+    let patternEmoji = /(?<sep>:{2}|\*{2})(?<emoji>[A-Z][a-z]{2,})\1/g;
+    let patternDigits = /(?<digit>\d+)/g;
 
     let valid = patternEmoji.exec(input);
     let validNums = patternDigits.exec(input);
     let threshold = '';
-
-    let obj = {};
-    let count = 0;
 
     while (validNums) {
         let num = validNums.groups['digit'];
@@ -46,28 +43,27 @@ function solve([input]) {
 
         validNums = patternDigits.exec(input);
     }
+
     threshold = threshold.split('').map(Number).reduce((acc, val) => acc * val);
 
+    let arr = [];
+    let count = 0;
+
     while (valid) {
+    
         let sep = valid.groups['sep'];
         let emoji = valid.groups['emoji'];
-        let coolness = 0;
+        let coolness = emoji.split('').reduce((acc, char) => acc + +char.charCodeAt(0), 0);
 
-        for (let char of emoji) {
-            let code = char.charCodeAt(0);
-            coolness += code;
-        }
         if (coolness > threshold) {
-            obj[sep + emoji + sep] = coolness;
-
+            arr.push(sep + emoji + sep)
         }
+
         count++;
         valid = patternEmoji.exec(input);
     }
-
     console.log(`Cool threshold: ${threshold}`);
-    console.log(`${count} emojis found in the text. The cool ones are:\n${Object.keys(obj).join('\n ')}`);
-
+    console.log(`${count} emojis found in the text. The cool ones are:\n${arr.join('\n')}`);
 }
 // solve(["In the Sofia Zoo there are 311 animals in total! ::Smiley:: This includes 3 **Tigers**, 1 ::Elephant:, 12 **Monk3ys**, a **Gorilla::, 5 ::fox:es: and 21 different types of :Snak::Es::. ::Mooning:: **Shy**"])
 // solve(["5, 4, 3, 2, 1, go! The 1-th consecutive banana-eating contest has begun! ::Joy:: **Banana** ::Wink:: **Vali** ::valid_emoji::"])
